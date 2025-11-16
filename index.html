@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PBSC AR Demo</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #007bff;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    a.button:hover {
+      background: #005bbf;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>PBSC AR Experience</h1>
+  <p>Tap the button below to view the model in Augmented Reality.</p>
+
+  <script>
+    // Detect if the user is on an Apple device
+    var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isIOS) {
+      // For iPhone/iPad: use the local USDZ file
+      document.write(
+        '<a class="button" rel="ar" href="model.usdz">View in AR (iPhone / iPad)</a>'
+      );
+    } else {
+      // For Android: use Scene Viewer with your hosted GLB file
+      document.write(
+        '<a class="button" href="intent://arvr.google.com/scene-viewer/1.0?file=https://patmacog.github.io/PBSC-AR-DEMO/model.glb&mode=ar_preferred#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://patmacog.github.io/PBSC-AR-DEMO/;end;">View in AR (Android)</a>'
+      );
+    }
+  </script>
+
+</body>
+</html>
